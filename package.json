@@ -1,0 +1,22 @@
+{
+  "name": "covid-19-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m2lovric/Cro-Covid19.git"
+  },
+  "author": "m2lovric",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m2lovric/Cro-Covid19/issues"
+  },
+  "homepage": "https://github.com/m2lovric/Cro-Covid19#readme",
+  "dependencies": {
+    "d3": "^5.15.1"
+  }
+}
