@@ -1,0 +1,20 @@
+body{
+  margin: 50px;
+}
+h1{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 3em;
+  color: #ff1744;
+}
+
+p{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 1.6em;
+}
+
+span{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+}
