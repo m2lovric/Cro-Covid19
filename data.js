@@ -25,26 +25,48 @@ fetch("https://api.covid19api.com/country/croatia/status/confirmed/live")
   const length = casesArr.length;
   document.getElementById("new_confirmed").innerHTML = casesArr[length-1] - casesArr[length-2];
 
-  const root = document.getElementById("root");
+  let w = casesData.length * 17;
+  let h = 350;
 
-  const div = d3.create("div")
-  .style("font", "10px sans-serif")
-  .style("text-align", "right")
-  .style("color", "white")
-  .attr("class", "barChart");
-
-  div.selectAll("div")
+  const svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+  
+  svg.selectAll("rect")
     .data(casesData)
     .enter()
-    .append("div")
-    .text(casesData.forEach(el => el))
-    .attr("class", "bar")
-    .style("height", (d) => {
-        let barHeight = d * 3;
-        return barHeight + "px";
-    });
+    .append("rect")
+    .attr("x", (d,i) => {
+      return i * (w/casesData.length);
+    })
+    .attr("y", (d) => {
+      return h - d*3;
+    })
+    .attr("width", 15)
+    .attr("height", (d) => {
+      return d * 3;
+    })
+    .attr("fill", "#ff1744");   
   
-  root.appendChild(div.node());  
+  svg.selectAll("text")
+    .data(casesData)
+    .enter()
+    .append("text")
+    .text((d) => {
+      return d;
+    })
+    .attr("x", (d,i) => {
+      return i * (w/casesData.length) + 7;
+    })
+    .attr("y", (d) => {
+      return h - d*3 + 13;
+    })
+    .attr("font-family", 'Oswald')
+    .attr("font-size", "12px")
+    .attr("fill", "white")
+    .attr("text-anchor", "middle");
+  
 })
 
 fetch("https://api.covid19api.com/country/croatia/status/recovered/live")
